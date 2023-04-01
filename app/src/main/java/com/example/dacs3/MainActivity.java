@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         Animation slide_out = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_out_right);
         flipper.setInAnimation(slide_in);
         flipper.setOutAnimation(slide_out);
+
+        System.out.println("Thuc Phung changed successfully!");
     }
 
     private void ActionBar() {
