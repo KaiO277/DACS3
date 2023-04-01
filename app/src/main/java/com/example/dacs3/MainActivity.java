@@ -79,4 +79,8 @@ public class MainActivity extends AppCompatActivity {
         view = findViewById(R.id.navigationview);
         drawerLayout = findViewById(R.id.drawerlayout);
     }
+
+    private void NghiaTest(){
+        System.out.print("hi, I'm Nghia");
+    }
 }
