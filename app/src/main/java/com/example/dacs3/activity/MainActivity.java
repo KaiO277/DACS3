@@ -6,12 +6,16 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
@@ -40,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
         initUI();
         ActionBar();
         ActionViewFlipper();
+        if (isConnected(this)){
+            Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "khong co internet", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void ActionViewFlipper() {
@@ -87,4 +96,14 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(loaiSpAdapter);
     }
 
+    private boolean isConnected(Context context){
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo wifi = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        NetworkInfo mobile = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        if ((wifi!= null && wifi.isConnected()) || (mobile!= null && mobile.isConnected())){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
