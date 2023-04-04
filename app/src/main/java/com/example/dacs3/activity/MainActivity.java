@@ -1,4 +1,4 @@
-package com.example.dacs3;
+package com.example.dacs3.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -15,6 +15,9 @@ import android.widget.ListView;
 import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
+import com.example.dacs3.R;
+import com.example.dacs3.adapter.LoaiSpAdapter;
+import com.example.dacs3.model.LoaiSp;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -27,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView view;
     private ListView listView;
     private DrawerLayout drawerLayout;
+    LoaiSpAdapter loaiSpAdapter;
+    List<LoaiSp> mList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void ActionViewFlipper() {
         List<String> manquangcao = new ArrayList<>();
-        manquangcao.add("http://10.23.11.116:8080/do_an_co_so_2_vku/public/images/menuhome/image1.jpg");
-        manquangcao.add("http://10.23.11.116:8080/do_an_co_so_2_vku/public/images/menuhome/image1.jpg");
-        manquangcao.add("http://10.23.11.116:8080/do_an_co_so_2_vku/public/images/menuhome/image3.jpg");
+        manquangcao.add("http://192.168.195.12/do_an_co_so_2_vku/public/uploads/sliders/slider1.jpg");
+        manquangcao.add("http://192.168.195.12/do_an_co_so_2_vku/public/uploads/sliders/slider2.jpg");
+        manquangcao.add("http://192.168.195.12/do_an_co_so_2_vku/public/uploads/sliders/slider3.jpg");
         for (int i =0; i<manquangcao.size(); i++){
             ImageView imageView = new ImageView(getApplicationContext());
             Glide.with(getApplicationContext()).load(manquangcao.get(i)).into(imageView);
@@ -77,9 +82,9 @@ public class MainActivity extends AppCompatActivity {
         flipper = findViewById(R.id.flipper);
         view = findViewById(R.id.navigationview);
         drawerLayout = findViewById(R.id.drawerlayout);
+        mList = new ArrayList<>();
+        loaiSpAdapter = new LoaiSpAdapter(mList, getApplicationContext());
+        listView.setAdapter(loaiSpAdapter);
     }
 
-    private void NghiaTest(){
-        System.out.print("hi, I'm Nghia");
-    }
 }
