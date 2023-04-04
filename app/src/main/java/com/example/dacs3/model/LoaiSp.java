@@ -22,7 +22,7 @@ public class LoaiSp {
     }
 
     public String getImage() {
-        return "http://localhost/do_an_co_so_2_vku/public/images/menuhome/"+image;
+        return "http://192.168.1.3/do_an_co_so_2_vku/public/images/menuhome/"+image;
     }
 
     public void setImage(String image) {

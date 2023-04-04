@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -21,11 +22,22 @@ import android.widget.ViewFlipper;
 import com.bumptech.glide.Glide;
 import com.example.dacs3.R;
 import com.example.dacs3.adapter.LoaiSpAdapter;
+import com.example.dacs3.adapter.SanPhamMoiAdapter;
 import com.example.dacs3.model.LoaiSp;
+import com.example.dacs3.model.SanPhamMoiModel;
+import com.example.dacs3.model.SapPhamMoi;
+import com.example.dacs3.retrofit.ApiBanHang;
+import com.example.dacs3.retrofit.RetrofitClient;
+import com.example.dacs3.utils.Utils;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Scheduler;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView rcvProduct;
@@ -36,19 +48,61 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     LoaiSpAdapter loaiSpAdapter;
     List<LoaiSp> mList;
+    CompositeDisposable compositeDisposable = new CompositeDisposable();
+    ApiBanHang apiBanHang;
+    List<SapPhamMoi> mangSpmoi;
+    SanPhamMoiAdapter SpAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        apiBanHang = RetrofitClient.getInstance(Utils.BASE_URL).create(ApiBanHang.class);
+
         initUI();
         ActionBar();
         ActionViewFlipper();
         if (isConnected(this)){
-            Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
+
+            ActionViewFlipper();
+            getLoaiSanPham();
+            getSpMoi();
         }else {
-            Toast.makeText(this, "khong co internet", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Không có internet, Vui lòng kết nỗi internet", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void getSpMoi() {
+        compositeDisposable.add(apiBanHang.getSpMoi()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                   sanPhamMoiModel -> {
+                        if(sanPhamMoiModel.isSuccess()){
+                            mangSpmoi = sanPhamMoiModel.getResult();
+                            SpAdapter = new SanPhamMoiAdapter(getApplicationContext(), mangSpmoi);
+                            rcvProduct.setAdapter(SpAdapter);
+                        }
+                   },
+                        throwable -> {
+                            Toast.makeText(this, "Khong ket noi duoc voi Server"+ throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                ));
+    }
+
+    private void getLoaiSanPham() {
+       compositeDisposable.add(apiBanHang.getLoaiSp()
+               .subscribeOn(Schedulers.io())
+               .observeOn(AndroidSchedulers.mainThread())
+               .subscribe(
+                       loaiSpModel -> {
+                           if (loaiSpModel.isSuccess()){
+                               mList = loaiSpModel.getResult();
+                               loaiSpAdapter = new LoaiSpAdapter(mList, getApplicationContext());
+                               listView.setAdapter(loaiSpAdapter);
+                           }
+                       }
+               ));
     }
 
     private void ActionViewFlipper() {
@@ -87,13 +141,15 @@ public class MainActivity extends AppCompatActivity {
     private void initUI() {
         listView = findViewById(R.id.listview);
         rcvProduct = findViewById(R.id.rcvProductNew);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
+        rcvProduct.setLayoutManager(layoutManager);
+        rcvProduct.setHasFixedSize(true);
         toolbar = findViewById(R.id.toolbar);
         flipper = findViewById(R.id.flipper);
         view = findViewById(R.id.navigationview);
         drawerLayout = findViewById(R.id.drawerlayout);
         mList = new ArrayList<>();
-        loaiSpAdapter = new LoaiSpAdapter(mList, getApplicationContext());
-        listView.setAdapter(loaiSpAdapter);
+        mangSpmoi = new ArrayList<>();
     }
 
     private boolean isConnected(Context context){
@@ -105,5 +161,11 @@ public class MainActivity extends AppCompatActivity {
         }else {
             return false;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        compositeDisposable.clear();
+        super.onDestroy();
     }
 }
