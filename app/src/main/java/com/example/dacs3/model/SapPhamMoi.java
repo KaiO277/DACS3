@@ -6,6 +6,7 @@ public class SapPhamMoi {
     String description;
     String thumb;
     String price;
+    public static String URL_BASE="http://10.23.11.93/";
 
     public int getId() {
         return id;
@@ -27,12 +28,13 @@ public class SapPhamMoi {
         return description;
     }
 
+
     public void setDescription(String description) {
         this.description = description;
     }
 
     public String getThumb() {
-        return "http://192.168.1.3/do_an_co_so_2_vku/public/uploads/products/"+thumb;
+        return URL_BASE+"do_an_co_so_2_vku/public/uploads/products/"+thumb;
     }
 
     public void setThumb(String thumb) {

@@ -53,12 +53,14 @@ public class MainActivity extends AppCompatActivity {
     ApiBanHang apiBanHang;
     List<SapPhamMoi> mangSpmoi;
     SanPhamMoiAdapter SpAdapter;
+    public static String URL_BASE="http://10.23.11.93/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         apiBanHang = RetrofitClient.getInstance(Utils.BASE_URL).create(ApiBanHang.class);
+        System.out.print(URL_BASE);
 
         initUI();
         ActionBar();
@@ -106,11 +108,12 @@ public class MainActivity extends AppCompatActivity {
                ));
     }
 
+
     private void ActionViewFlipper() {
         List<String> manquangcao = new ArrayList<>();
-        manquangcao.add("http://192.168.195.12/do_an_co_so_2_vku/public/uploads/sliders/slider1.jpg");
-        manquangcao.add("http://192.168.195.12/do_an_co_so_2_vku/public/uploads/sliders/slider2.jpg");
-        manquangcao.add("http://192.168.195.12/do_an_co_so_2_vku/public/uploads/sliders/slider3.jpg");
+        manquangcao.add(URL_BASE+"do_an_co_so_2_vku/public/uploads/sliders/slider1.jpg");
+        manquangcao.add(URL_BASE+"do_an_co_so_2_vku/public/uploads/sliders/slider2.jpg");
+        manquangcao.add(URL_BASE+"do_an_co_so_2_vku/public/uploads/sliders/slider3.jpg");
         for (int i =0; i<manquangcao.size(); i++){
             ImageView imageView = new ImageView(getApplicationContext());
             Glide.with(getApplicationContext()).load(manquangcao.get(i)).into(imageView);
