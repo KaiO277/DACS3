@@ -8,12 +8,14 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -40,20 +42,21 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
-
+    String URL_BASE="http://192.168.195.12/";
     private RecyclerView rcvProduct;
     private Toolbar toolbar;
     private ViewFlipper flipper;
     private NavigationView view;
     private ListView listView;
     private DrawerLayout drawerLayout;
+
     LoaiSpAdapter loaiSpAdapter;
     List<LoaiSp> mList;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
     ApiBanHang apiBanHang;
     List<SapPhamMoi> mangSpmoi;
     SanPhamMoiAdapter SpAdapter;
-    String URL_BASE="http://10.23.11.93/";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,9 +73,45 @@ public class MainActivity extends AppCompatActivity {
             ActionViewFlipper();
             getLoaiSanPham();
             getSpMoi();
+            getEventClick();
         }else {
             Toast.makeText(this, "Không có internet, Vui lòng kết nỗi internet", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void getEventClick() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (i){
+                    case 0:
+                        Intent trangchu = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(trangchu);
+                        break;
+                    case 1:
+                        Intent giay = new Intent(getApplicationContext(), GiayActivity.class);
+                        giay.putExtra("menu_id", 1);
+                        startActivity(giay);
+                        break;
+                    case 2:
+                        Intent nu = new Intent(getApplicationContext(), NuActivity.class);
+                        startActivity(nu);
+                        break;
+                    case 3:
+                        Intent nam = new Intent(getApplicationContext(), NamActivity.class);
+                        startActivity(nam);
+                        break;
+                    case 4:
+                        Intent lienhe = new Intent(getApplicationContext(), LienHeActivity.class);
+                        startActivity(lienhe);
+                        break;
+                    case 5:
+                        Intent thongtin = new Intent(getApplicationContext(), ThongTinActivity.class);
+                        startActivity(thongtin);
+                        break;
+                }
+            }
+        });
     }
 
     private void getSpMoi() {

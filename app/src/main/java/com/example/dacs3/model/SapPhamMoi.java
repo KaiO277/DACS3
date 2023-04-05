@@ -1,12 +1,14 @@
 package com.example.dacs3.model;
 
 public class SapPhamMoi {
+
     int id;
     String name;
     String description;
     String thumb;
     String price;
-    public static String URL_BASE="http://10.23.11.93/";
+    String menu_id;
+
 
     public int getId() {
         return id;
@@ -34,7 +36,7 @@ public class SapPhamMoi {
     }
 
     public String getThumb() {
-        return URL_BASE+"do_an_co_so_2_vku/public/uploads/products/"+thumb;
+        return "http://192.168.195.12/"+"do_an_co_so_2_vku/public/uploads/products/"+thumb;
     }
 
     public void setThumb(String thumb) {
@@ -47,5 +49,13 @@ public class SapPhamMoi {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getMenu_id() {
+        return menu_id;
+    }
+
+    public void setMenu_id(String menu_id) {
+        this.menu_id = menu_id;
     }
 }
