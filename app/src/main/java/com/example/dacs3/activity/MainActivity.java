@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 1:
                         Intent giay = new Intent(getApplicationContext(), GiayActivity.class);
-                        giay.putExtra("menu_id", 1);
+                        giay.putExtra("menu_id", 37);
                         startActivity(giay);
                         break;
                     case 2:

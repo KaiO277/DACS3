@@ -39,7 +39,7 @@ public class GiayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_giay);
         apiBanHang = RetrofitClient.getInstance(Utils.BASE_URL).create(ApiBanHang.class);
-        menu_id = getIntent().getIntExtra("menu_id", 1);
+        menu_id = getIntent().getIntExtra("menu_id", 37);
         System.out.print(menu_id);
         initUI();
         ActionToolBar();
