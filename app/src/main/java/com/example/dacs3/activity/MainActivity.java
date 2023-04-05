@@ -53,14 +53,14 @@ public class MainActivity extends AppCompatActivity {
     ApiBanHang apiBanHang;
     List<SapPhamMoi> mangSpmoi;
     SanPhamMoiAdapter SpAdapter;
-    public static String URL_BASE="http://10.23.11.93/";
+    String URL_BASE="http://10.23.11.93/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         apiBanHang = RetrofitClient.getInstance(Utils.BASE_URL).create(ApiBanHang.class);
-        System.out.print(URL_BASE);
+        System.out.print("link: "+URL_BASE+"  ");
 
         initUI();
         ActionBar();
