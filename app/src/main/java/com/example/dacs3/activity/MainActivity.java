@@ -40,6 +40,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
+
     private RecyclerView rcvProduct;
     private Toolbar toolbar;
     private ViewFlipper flipper;
