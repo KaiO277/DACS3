@@ -1,7 +1,7 @@
 package com.example.dacs3.model;
 
 public class LoaiSp {
-    public  String URL_BASE="http://192.168.195.12/";
+    public  String URL_BASE="http://192.168.1.3/";
     private int id;
     private String name;
     private String image;

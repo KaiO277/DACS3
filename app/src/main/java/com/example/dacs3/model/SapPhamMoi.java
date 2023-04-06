@@ -1,6 +1,8 @@
 package com.example.dacs3.model;
 
-public class SapPhamMoi {
+import java.io.Serializable;
+
+public class SapPhamMoi implements Serializable {
 
     int id;
     String name;
@@ -36,7 +38,7 @@ public class SapPhamMoi {
     }
 
     public String getThumb() {
-        return "http://192.168.195.12/"+"do_an_co_so_2_vku/public/uploads/products/"+thumb;
+        return "http://192.168.1.3/"+"do_an_co_so_2_vku/public/uploads/products/"+thumb;
     }
 
     public void setThumb(String thumb) {

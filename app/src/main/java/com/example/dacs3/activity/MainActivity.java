@@ -42,7 +42,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
-    String URL_BASE="http://192.168.195.12/";
+    String URL_BASE="http://192.168.1.3/";
     private RecyclerView rcvProduct;
     private Toolbar toolbar;
     private ViewFlipper flipper;
@@ -94,11 +94,13 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(giay);
                         break;
                     case 2:
-                        Intent nu = new Intent(getApplicationContext(), NuActivity.class);
+                        Intent nu = new Intent(getApplicationContext(), GiayActivity.class);
+                        nu.putExtra("menu_id", 38);
                         startActivity(nu);
                         break;
                     case 3:
-                        Intent nam = new Intent(getApplicationContext(), NamActivity.class);
+                        Intent nam = new Intent(getApplicationContext(), GiayActivity.class);
+                        nam.putExtra("menu_id", 39);
                         startActivity(nam);
                         break;
                     case 4:

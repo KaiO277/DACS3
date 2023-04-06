@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DACS3</string>
+    <string name="m_t_chi_ti_t">Mô tả chi tiết:</string>
+    <string name="th_m_v_o_gi_h_ng">Thêm vào giỏ hàng</string>
 </resources>
