@@ -195,6 +195,9 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerlayout);
         mList = new ArrayList<>();
         mangSpmoi = new ArrayList<>();
+        if (Utils.manggiohang == null){
+            Utils.manggiohang = new ArrayList<>();
+        }
     }
 
     private boolean isConnected(Context context){
