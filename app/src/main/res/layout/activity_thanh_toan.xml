@@ -36,7 +36,8 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/baseline_attach_money_24"/>
                 <TextView
-                    android:text="2.500.000Đ "
+                    android:id="@+id/txttongtien"
+                    android:text="2.500.000Đ"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@android:color/holo_red_light"
@@ -60,6 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/txtsdt"
                     android:text="088983475"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -84,6 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:id="@+id/txtemail"
                     android:text="example@gmail.com"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -108,6 +111,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <com.google.android.material.textfield.TextInputEditText
             android:drawableLeft="@drawable/baseline_add_location_24"
+            android:id="@+id/edtdiachi"
             android:hint="Nhập địa chỉ giao hàng"
             android:drawablePadding="5dp"
             android:textColorHint="@android:color/holo_red_light"
@@ -117,6 +121,7 @@
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btndathang"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
