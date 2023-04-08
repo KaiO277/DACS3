@@ -16,6 +16,7 @@ import com.example.dacs3.retrofit.ApiBanHang;
 import com.example.dacs3.retrofit.RetrofitClient;
 import com.example.dacs3.utils.Utils;
 
+import io.paperdb.Paper;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -54,6 +55,8 @@ public class DangNhapActivity extends AppCompatActivity {
                 }else if(TextUtils.isEmpty(str_pass)){
                     Toast.makeText(getApplicationContext(), "Bạn chưa nhập Pass", Toast.LENGTH_SHORT).show();
                 }else{
+                    Paper.book().write("email", str_email);
+                    Paper.book().write("pass", str_pass);
                     compositeDisposable.add(apiBanHang.dangNhap(str_email, str_pass)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
@@ -76,12 +79,19 @@ public class DangNhapActivity extends AppCompatActivity {
     }
 
     private void initUI() {
+        Paper.init(this);
         apiBanHang = RetrofitClient.getInstance(Utils.BASE_URL).create(ApiBanHang.class);
 
         txtdangki = findViewById(R.id.txtdangki);
         btndangnhap = findViewById(R.id.btndangnhap);
         email = findViewById(R.id.email);
         pass = findViewById(R.id.pass);
+
+        //read data
+        if (Paper.book().read("email") != null && Paper.book().read("pass") != null){
+            email.setText(Paper.book().read("email"));
+            pass.setText(Paper.book().read("pass"));
+        }
     }
 
     @Override
