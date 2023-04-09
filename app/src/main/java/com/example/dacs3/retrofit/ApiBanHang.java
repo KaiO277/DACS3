@@ -42,4 +42,16 @@ public interface ApiBanHang {
             @Field("pass") String pass
     );
 
+    @POST("donhang1.php")
+    @FormUrlEncoded
+    Observable<UserModel> createOder(
+            @Field("email") String email,
+            @Field("sodienthoai") String sodienthoai,
+            @Field("tongtien") String tongtien,
+            @Field("iduser") int iduser,
+            @Field("diachi") String diachi,
+            @Field("soluong") int soluong,
+            @Field("chitiet") String chitiet
+    );
+
 }
