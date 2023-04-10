@@ -1,5 +1,7 @@
 package com.example.dacs3.model;
 
+import com.example.dacs3.utils.Utils;
+
 import java.io.Serializable;
 
 public class SapPhamMoi implements Serializable {
@@ -38,7 +40,7 @@ public class SapPhamMoi implements Serializable {
     }
 
     public String getThumb() {
-        return "http://10.23.11.116:8080/"+"do_an_co_so_2_vku/public/uploads/products/"+thumb;
+        return Utils.URL_BASE +"do_an_co_so_2_vku/public/uploads/products/"+thumb;
     }
 
     public void setThumb(String thumb) {
