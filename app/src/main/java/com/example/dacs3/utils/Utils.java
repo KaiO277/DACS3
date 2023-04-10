@@ -9,7 +9,7 @@ import java.util.List;
 public class Utils {
 
 
-    public static String URL_BASE="http://10.23.11.116:8080/";
+    public static String URL_BASE="http://10.23.11.93/";
     public static final String BASE_URL = URL_BASE+"DACS3/";
     public static List<GioHang> manggiohang;
     public static User user_current = new User();

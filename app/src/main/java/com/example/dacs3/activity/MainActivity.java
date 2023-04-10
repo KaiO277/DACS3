@@ -44,7 +44,6 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
-    String URL_BASE="http://10.23.11.116:8080/";
     private RecyclerView rcvProduct;
     private Toolbar toolbar;
     private ViewFlipper flipper;
@@ -67,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         apiBanHang = RetrofitClient.getInstance(Utils.BASE_URL).create(ApiBanHang.class);
-        System.out.print("link: "+URL_BASE+"  ");
+        System.out.print("link: "+Utils.URL_BASE+"  ");
 
         initUI();
         ActionBar();
