@@ -44,7 +44,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
-    String URL_BASE="http://192.168.1.3/";
+    String URL_BASE="http://10.23.11.116:8080/";
     private RecyclerView rcvProduct;
     private Toolbar toolbar;
     private ViewFlipper flipper;

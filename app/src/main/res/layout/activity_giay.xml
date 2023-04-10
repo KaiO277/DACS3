@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.GiayActivity">
+    tools:context=".activity.GiayActivity"
+    android:background="@drawable/gradient">
     <androidx.appcompat.widget.Toolbar
         app:title="Giày"
         android:id="@+id/toolbar"
