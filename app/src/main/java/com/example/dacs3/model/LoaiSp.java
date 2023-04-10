@@ -1,9 +1,7 @@
 package com.example.dacs3.model;
 
-import com.example.dacs3.utils.Utils;
-
 public class LoaiSp {
-//    public  String URL_BASE="http://192.168.1.3/";
+    public  String URL_BASE="http://10.23.11.116:8080/";
     private int id;
     private String name;
     private String image;
@@ -25,7 +23,7 @@ public class LoaiSp {
     }
 
     public String getImage() {
-        return Utils.URL_BASE+ "do_an_co_so_2_vku/public/images/menuhome/"+image;
+        return URL_BASE+ "do_an_co_so_2_vku/public/images/menuhome/"+image;
     }
 
     public void setImage(String image) {

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ChiTietActivity">
+    tools:context=".activity.ChiTietActivity"
+    android:background="@drawable/gradient">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:background="#3AD541"
