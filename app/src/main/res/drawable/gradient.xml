@@ -4,5 +4,4 @@
         android:centerColor="@color/center_color"
         android:endColor="@color/end_color"
         android:angle="45"/>
-<!--    nghia-->
 </shape>

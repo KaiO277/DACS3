@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,7 +29,9 @@ public class DangNhapActivity extends AppCompatActivity {
     AppCompatButton btndangnhap;
     ApiBanHang apiBanHang;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
-    boolean isLogin = false;
+    boolean isLogin= false;
+    int set;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +62,8 @@ public class DangNhapActivity extends AppCompatActivity {
                 }else{
                     Paper.book().write("email", str_email);
                     Paper.book().write("pass", str_pass);
-                   dangNhap(str_email, str_pass);
+
+                        dangNhap(str_email, str_pass);
                 }
             }
         });
@@ -99,7 +103,13 @@ public class DangNhapActivity extends AppCompatActivity {
                 .subscribe(
                         userModel -> {
                             if(userModel.isSuccess()){
-                                isLogin = true;
+                                set = getIntent().getIntExtra("Set", 1);
+                                if (set == 1){
+                                    isLogin = false;
+                                }else {
+                                    isLogin = true;
+                                }
+//                                isLogin = true;
                                 Paper.book().write("isLogin", isLogin);
                                 Utils.user_current = userModel.getResult().get(0);
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -111,10 +121,8 @@ public class DangNhapActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                 ));
-
-
-
     }
+
 
     @Override
     protected void onResume() {

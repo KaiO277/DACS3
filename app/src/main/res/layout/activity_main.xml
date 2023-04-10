@@ -73,6 +73,7 @@
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigationview"
             android:layout_gravity="start"
+            android:background="@drawable/gradient"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ListView

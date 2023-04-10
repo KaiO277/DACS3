@@ -6,4 +6,14 @@
     <string name="n_u_ch_a_c_t_i_kho_n">Nếu chưa có tài khoản?</string>
     <string name="th_ng_tin">Thông tin</string>
     <string name="ng_nh_p_t_i_kho_n_shopee">● Đăng nhập tài khoản Shopee;</string>
+    <string name="khi_c_nhu_c_u_mua_h_ng_tr_n_shop_ng_i_mua_c_n_th_c_hi_n_c_c_b_c_sau_y">Khi có nhu cầu mua hàng trên Shop, Người Mua cần thực hiện các bước sau đây:</string>
+    <string name="ng_nh_p_t_i_kho_n_shop">●\tĐăng nhập tài khoản Shop;</string>
+    <string name="t_m_ki_m_tham_kh_o_th_ng_tin_s_n_ph_m_d_ch_v_khuy_n_m_i_v_c_c_ng_i_b_n_m_ng_i_mua_ang_quan_t_m">●\tTìm kiếm, tham khảo thông tin sản phẩm, dịch vụ, khuyến mại và các Người Bán mà Người Mua đang quan tâm.</string>
+    <string name="tham_kh_o_th_ng_tin_gi_v_ch_nh_s_ch_h_tr_c_a_b_n_b_n_s_n_ph_m_d_ch_v_m_ng_i_mua_ang_c_nhu_c_u_mua_c_th_tham_kh_o_m_t_h_ng_t_ng_t_c_a_nh_ng_ng_i_b_n_kh_c_tr_n_website_shop_a_ra_quy_t_nh_mua_s_n_ph_m_d_ch_v">● Tham khảo thông tin giá và chính sách hỗ trợ của bên bán sản phẩm, dịch vụ mà Người Mua đang có nhu cầu mua (có thể tham khảo mặt hàng tương tự của những Người Bán khác trên website Shop để đưa ra quyết định mua sản phẩm, dịch vụ đó);</string>
+    <string name="d_a_tr_n_th_ng_tin_tham_kh_o_c_t_ng_i_b_n_s_n_ph_m_d_ch_v_ng_i_mua_c_th_li_n_h_v_i_ch_gian_h_ng_qua_th_ng_tin_li_n_h_tr_n_gian_h_ng_h_i_th_m_th_ng_tin_s_n_ph_m_d_ch_v_ho_c_ti_p_x_c_tr_c_ti_p_xem_v_mua_s_n_ph_m_d_ch_v">● Dựa trên thông tin tham khảo được từ Người Bán sản phẩm, dịch vụ Người Mua có thể liên hệ với chủ gian hàng qua thông tin liên hệ trên gian hàng để hỏi thêm thông tin sản phẩm, dịch vụ hoặc tiếp xúc trực tiếp để xem và mua sản phẩm, dịch vụ;</string>
+    <string name="ng_i_mua_a_ra_quy_t_nh_t_h_ng_tr_c_tuy_n_b_ng_c_ch_click_v_o_t_h_ng">●\tNgười Mua đưa ra quyết định đặt hàng trực tuyến bằng cách click vào “Đặt hàng”;</string>
+    <string name="ng_i_mua_l_a_ch_n_c_ch_th_c_giao_d_ch_tuy_theo_ch_nh_s_ch_c_a_t_ng_gian_h_ng_t_ra">●\tNgười Mua lựa chọn cách thức giao dịch tuy theo chính sách của từng gian hàng đặt ra;</string>
+    <string name="n_h_ng_c_a_ng_i_mua_s_c_chuy_n_th_ng_tin_n_ng_i_b_n_t_y_v_o_th_a_thu_n_gi_a_ng_i_mua_v_ng_i_b_n_m_shop_c_th_h_tr_qu_tr_nh_v_n_chuy_n_h_ng_h_a_v_thanh_to_n_m_b_o_ho_c_hai_b_n_t_giao_d_ch_v_i_nhau">●\tĐơn hàng của Người Mua sẽ được chuyển thông tin đến Người Bán. Tùy vào thỏa thuận giữa Người Mua và Người Bán mà Shop có thể hỗ trợ quá trình vận chuyển hàng hóa và thanh toán đảm bảo hoặc hai bên tự giao dịch với nhau;</string>
+    <string name="ng_i_mua_nh_n_s_n_ph_m_d_ch_v">●\tNgười Mua nhận sản phẩm, dịch vụ;</string>
+    <string name="ng_i_mua_th_c_m_c_khi_u_n_i_ng_i_b_n_n_u_c_qua_t_ng_i_h_tr_c_a_shop">●\tNgười Mua thắc mắc, khiếu nại Người Bán (nếu có) qua tổng đài hỗ trợ của Shop.</string>
 </resources>
