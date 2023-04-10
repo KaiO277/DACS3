@@ -5,5 +5,98 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.ThongTinActivity">
-
+    <TextView
+        android:text="@string/th_ng_tin"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:id="@+id/title"
+        android:paddingBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"/>
+    <TextView
+        android:text="       Khi có nhu cầu mua hàng trên Shop, Người Mua cần thực hiện các bước sau đây:"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:id="@+id/dong1"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"
+         />
+    <TextView
+        android:text="●	Đăng nhập tài khoản Shop;"
+        android:layout_width="match_parent"
+        android:id="@+id/dong2"
+        app:layout_constraintTop_toBottomOf="@+id/dong1"
+        android:textSize="18sp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:text="●	Tìm kiếm, tham khảo thông tin sản phẩm, dịch vụ, khuyến mại và các Người Bán mà Người Mua đang quan tâm."
+        android:layout_width="match_parent"
+        android:id="@+id/dong3"
+        app:layout_constraintTop_toBottomOf="@+id/dong2"
+        android:textSize="18sp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:text="● Tham khảo thông tin giá và chính sách hỗ trợ của bên bán sản phẩm, dịch vụ mà Người Mua đang có nhu cầu mua (có thể tham khảo mặt hàng tương tự của những Người Bán khác trên website Shop để đưa ra quyết định mua sản phẩm, dịch vụ đó);"
+        android:layout_width="match_parent"
+        android:id="@+id/dong4"
+        app:layout_constraintTop_toBottomOf="@+id/dong3"
+        android:textSize="18sp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:text="● Dựa trên thông tin tham khảo được từ Người Bán sản phẩm, dịch vụ Người Mua có thể liên hệ với chủ gian hàng qua thông tin liên hệ trên gian hàng để hỏi thêm thông tin sản phẩm, dịch vụ hoặc tiếp xúc trực tiếp để xem và mua sản phẩm, dịch vụ;"
+        android:layout_width="match_parent"
+        android:id="@+id/dong5"
+        app:layout_constraintTop_toBottomOf="@+id/dong4"
+        android:textSize="18sp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:text="●	Người Mua đưa ra quyết định đặt hàng trực tuyến bằng cách click vào “Đặt hàng”;"
+        android:layout_width="match_parent"
+        android:id="@+id/dong6"
+        app:layout_constraintTop_toBottomOf="@+id/dong5"
+        android:textSize="18sp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:text="●	Người Mua lựa chọn cách thức giao dịch tuy theo chính sách của từng gian hàng đặt ra;"
+        android:layout_width="match_parent"
+        android:id="@+id/dong7"
+        app:layout_constraintTop_toBottomOf="@+id/dong6"
+        android:textSize="18sp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:text="●	Đơn hàng của Người Mua sẽ được chuyển thông tin đến Người Bán. Tùy vào thỏa thuận giữa Người Mua và Người Bán mà Shop có thể hỗ trợ quá trình vận chuyển hàng hóa và thanh toán đảm bảo hoặc hai bên tự giao dịch với nhau;"
+        android:layout_width="match_parent"
+        android:id="@+id/dong8"
+        app:layout_constraintTop_toBottomOf="@+id/dong7"
+        android:textSize="18sp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:text="●	Người Mua nhận sản phẩm, dịch vụ;"
+        android:layout_width="match_parent"
+        android:id="@+id/dong9"
+        app:layout_constraintTop_toBottomOf="@+id/dong8"
+        android:textSize="18sp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:text="●	Người Mua thắc mắc, khiếu nại Người Bán (nếu có) qua tổng đài hỗ trợ của Shop."
+        android:layout_width="match_parent"
+        android:id="@+id/dong10"
+        app:layout_constraintTop_toBottomOf="@+id/dong9"
+        android:textSize="18sp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+<!--
+
+-->

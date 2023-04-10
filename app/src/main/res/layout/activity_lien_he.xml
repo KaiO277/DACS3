@@ -5,5 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.LienHeActivity">
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Liên hệ"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:background="#B2B4C1"
+        android:layout_height="?attr/actionBarSize">
+
+    </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:id="@+id/layout_web"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_width="100dp"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_gravity="center"
+            android:text="Liên hệ Website chúng tôi tại đây"
+            android:textColor="@color/teal_200"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/layout_web"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:id="@+id/layout_sdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/baseline_local_phone_24"
+            android:layout_width="100dp"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_gravity="center"
+            android:text="099999999"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
