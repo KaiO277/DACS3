@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     List<SapPhamMoi> mangSpmoi;
     SanPhamMoiAdapter SpAdapter;
     NotificationBadge badge;
-    FrameLayout frameLayout;
+    FrameLayout frameLayout, frameSearch;
 
 
     @Override
@@ -203,6 +203,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerlayout);
         badge = findViewById(R.id.menu_sl);
         frameLayout = findViewById(R.id.framegiohang);
+        frameSearch = findViewById(R.id.search);
 
         mList = new ArrayList<>();
         mangSpmoi = new ArrayList<>();
@@ -220,6 +221,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent giohang = new Intent(getApplicationContext(), GioHangActivity.class);
                 startActivity(giohang);
+            }
+        });
+
+        frameSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                startActivity(intent);
             }
         });
     }

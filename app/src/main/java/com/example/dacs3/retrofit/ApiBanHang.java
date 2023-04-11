@@ -2,6 +2,7 @@ package com.example.dacs3.retrofit;
 
 import com.example.dacs3.model.LoaiSpModel;
 import com.example.dacs3.model.SanPhamMoiModel;
+import com.example.dacs3.model.SapPhamMoi;
 import com.example.dacs3.model.User;
 import com.example.dacs3.model.UserModel;
 
@@ -54,4 +55,9 @@ public interface ApiBanHang {
             @Field("chitiet") String chitiet
     );
 
+    @POST("search.php")
+    @FormUrlEncoded
+    Observable<SanPhamMoiModel> search(
+            @Field("search") String search
+    );
 }
