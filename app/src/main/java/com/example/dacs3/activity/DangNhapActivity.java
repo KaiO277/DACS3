@@ -1,5 +1,6 @@
 package com.example.dacs3.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
@@ -56,9 +57,11 @@ public class DangNhapActivity extends AppCompatActivity {
                 String str_email = email.getText().toString().trim();
                 String str_pass = pass.getText().toString().trim();
                 if(TextUtils.isEmpty(str_email)){
-                    Toast.makeText(getApplicationContext(), "Bạn chưa nhập Email", Toast.LENGTH_SHORT).show();
+                    String error = "Bạn chưa nhập Email";
+                    TBL(error);
                 }else if(TextUtils.isEmpty(str_pass)){
-                    Toast.makeText(getApplicationContext(), "Bạn chưa nhập Pass", Toast.LENGTH_SHORT).show();
+                    String error = "Bạn chưa nhập Pass";
+                    TBL(error);
                 }else{
                     Paper.book().write("email", str_email);
                     Paper.book().write("pass", str_pass);
@@ -123,6 +126,17 @@ public class DangNhapActivity extends AppCompatActivity {
                 ));
     }
 
+    private void TBL(String error){
+        String title = "Thông báo";
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title)
+                .setMessage(error)
+                .setPositiveButton("OK", null);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 
     @Override
     protected void onResume() {

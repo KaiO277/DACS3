@@ -1,5 +1,6 @@
 package com.example.dacs3.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
@@ -15,6 +16,9 @@ import com.example.dacs3.model.UserModel;
 import com.example.dacs3.retrofit.ApiBanHang;
 import com.example.dacs3.retrofit.RetrofitClient;
 import com.example.dacs3.utils.Utils;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
@@ -52,15 +56,27 @@ public class DangKiActivity extends AppCompatActivity {
         String str_mobile = mobile.getText().toString().trim();
         String str_username = username.getText().toString().trim();
         if(TextUtils.isEmpty(str_email)){
-            Toast.makeText(getApplicationContext(), "Bạn chưa nhập Email", Toast.LENGTH_SHORT).show();
-        }else if(TextUtils.isEmpty(str_mobile)){
-            Toast.makeText(getApplicationContext(), "Bạn chưa nhập Mobile", Toast.LENGTH_SHORT).show();
-        }else if(TextUtils.isEmpty(str_pass)){
-            Toast.makeText(getApplicationContext(), "Bạn chưa nhập Pass", Toast.LENGTH_SHORT).show();
+            String error =  "Bạn chưa nhập Email";
+            TBL(error);
+        }else if (!isValidEmail(str_email)) {
+            // Nếu email không hợp lệ, thông báo lỗi.
+            String error =  "Bạn nhập không phải Email";
+            TBL(error);
         }else if(TextUtils.isEmpty(str_username)){
-            Toast.makeText(getApplicationContext(), "Bạn chưa nhập User name", Toast.LENGTH_SHORT).show();
+            String error =  "Bạn chưa nhập User name";
+            TBL(error);
+        }else if(TextUtils.isEmpty(str_pass)){
+            String error =  "Bạn chưa nhập Pass";
+            TBL(error);
         }else if(TextUtils.isEmpty(str_repass)){
-            Toast.makeText(getApplicationContext(), "Bạn chưa nhập Repass", Toast.LENGTH_SHORT).show();
+            String error =  "Bạn chưa nhập Repass";
+            TBL(error);
+        }else if(TextUtils.isEmpty(str_mobile)){
+            String error =  "Bạn chưa nhập Mobile";
+            TBL(error);
+        }else if(!isValidPhoneNumber(str_mobile)){
+            String error =  "Số điện thoại không hợp lệ";
+            TBL(error);
         }else {
             if (str_pass.equals(str_repass)){
                 //post data
@@ -72,7 +88,7 @@ public class DangKiActivity extends AppCompatActivity {
                                     if (userModel.isSuccess()){
                                         Utils.user_current.setEmail(str_email);
                                         Utils.user_current.setPass(str_pass);
-                                        Toast.makeText(getApplicationContext(), "Thanh cong", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), "Thành công", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getApplicationContext(), DangNhapActivity.class);
                                         startActivity(intent);
                                         finish();
@@ -105,5 +121,28 @@ public class DangKiActivity extends AppCompatActivity {
     protected void onDestroy() {
         compositeDisposable.clear();
         super.onDestroy();
+    }
+    private boolean isValidEmail(String email) {
+        // Sử dụng regex để kiểm tra định dạng email
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        return email.matches(emailPattern);
+    }
+
+    private void TBL(String error){
+        String title = "Thông báo";
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title)
+                .setMessage(error)
+                .setPositiveButton("OK", null);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+    public static boolean isValidPhoneNumber(String phoneNumber) {
+        String regex = "^(03|05|07|08|02|04)[0-9]{8}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(phoneNumber);
+        return matcher.matches();
     }
 }
