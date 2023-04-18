@@ -83,6 +83,7 @@ public class ThanhToanActivity extends AppCompatActivity {
                             .subscribe(
                                   userModel -> {
                                       Toast.makeText(getApplicationContext(), "Thanh cong", Toast.LENGTH_SHORT).show();
+                                      Utils.manggiohang.clear();
                                       Intent intent= new Intent(getApplicationContext(), MainActivity.class);
                                       startActivity(intent);
                                   },
