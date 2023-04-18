@@ -59,7 +59,7 @@ public class ChiTietActivity extends AppCompatActivity {
             for (int i = 0; i < Utils.manggiohang.size(); i++){
                 if (Utils.manggiohang.get(i).getIdsp() == sapPhamMoi.getId()){
                     Utils.manggiohang.get(i).setSoluong(soluong + Utils.manggiohang.get(i).getSoluong());
-                    long gia = Long.parseLong(sapPhamMoi.getPrice()) * Utils.manggiohang.get(i).getSoluong();
+                    long gia = Long.parseLong(sapPhamMoi.getPrice()) ;//* Utils.manggiohang.get(i).getSoluong()
                     Utils.manggiohang.get(i).setGiasp(gia);
                     flag = true;
                 }
@@ -75,7 +75,7 @@ public class ChiTietActivity extends AppCompatActivity {
             }
         }else {
             int soluong = Integer.parseInt(spinner.getSelectedItem().toString());
-            long gia = Long.parseLong(sapPhamMoi.getPrice()) * soluong;
+            long gia = Long.parseLong(sapPhamMoi.getPrice());// * soluong
             GioHang gioHang = new GioHang();
             gioHang.setGiasp(gia);
             gioHang.setSoluong(soluong);
