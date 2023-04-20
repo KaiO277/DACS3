@@ -1,5 +1,6 @@
 package com.example.dacs3.retrofit;
 
+import com.example.dacs3.model.DonHangModel;
 import com.example.dacs3.model.LoaiSpModel;
 import com.example.dacs3.model.SanPhamMoiModel;
 import com.example.dacs3.model.SapPhamMoi;
@@ -59,5 +60,11 @@ public interface ApiBanHang {
     @FormUrlEncoded
     Observable<SanPhamMoiModel> search(
             @Field("search") String search
+    );
+
+    @POST("xemdonhang.php")
+    @FormUrlEncoded
+    Observable<DonHangModel> xemDonHang(
+            @Field("iduser") int id
     );
 }

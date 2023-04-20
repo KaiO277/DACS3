@@ -115,6 +115,10 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(thongtin);
                         break;
                     case 6:
+                        Intent donhang = new Intent(getApplicationContext(), XemDonActivity.class);
+                        startActivity(donhang);
+                        break;
+                    case 7:
                         Intent dangxuat = new Intent(getApplicationContext(), DangNhapActivity.class);
                         dangxuat.putExtra("Set", 1);
                         startActivity(dangxuat);
