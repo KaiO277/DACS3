@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="@string/trang_ch_nh"
+        android:id="@+id/trangchinh"
+        android:icon="@drawable/baseline_home_24" />
+
+    <item
+        android:title="Đơn hàng"
+        android:id="@+id/donhang"
+        android:icon="@drawable/ic_orders_w512" />
+
+    <item android:title="Danh mục" android:id="@+id/danhmuc">
+        <menu>
+            <item
+                android:title="Giày"
+                android:id="@+id/giay"
+                android:icon="@drawable/sport_shoe_w512" />
+
+            <item
+                android:title="Nam"
+                android:id="@+id/nam"
+                android:icon="@drawable/baseline_man_24" />
+
+            <item
+                android:title="Nữ"
+                android:id="@+id/nu"
+                android:icon="@drawable/baseline_woman_24" />
+        </menu>
+    </item>
+
+    <item android:title="Khác" android:id="@+id/khac">
+        <menu>
+            <item
+                android:title="Liên hệ"
+                android:id="@+id/lienhe"
+                android:icon="@drawable/baseline_contact_support_24" />
+
+            <item
+                android:title="Thông tin"
+                android:id="@+id/thongtin"
+                android:icon="@drawable/baseline_info_24" />
+
+            <item
+                android:title="Đăng xuất"
+                android:id="@+id/dangxuat"
+                android:icon="@drawable/baseline_logout_24" />
+        </menu>
+    </item>
+</menu>

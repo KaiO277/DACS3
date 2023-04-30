@@ -16,4 +16,5 @@
     <string name="n_h_ng_c_a_ng_i_mua_s_c_chuy_n_th_ng_tin_n_ng_i_b_n_t_y_v_o_th_a_thu_n_gi_a_ng_i_mua_v_ng_i_b_n_m_shop_c_th_h_tr_qu_tr_nh_v_n_chuy_n_h_ng_h_a_v_thanh_to_n_m_b_o_ho_c_hai_b_n_t_giao_d_ch_v_i_nhau">●\tĐơn hàng của Người Mua sẽ được chuyển thông tin đến Người Bán. Tùy vào thỏa thuận giữa Người Mua và Người Bán mà Shop có thể hỗ trợ quá trình vận chuyển hàng hóa và thanh toán đảm bảo hoặc hai bên tự giao dịch với nhau;</string>
     <string name="ng_i_mua_nh_n_s_n_ph_m_d_ch_v">●\tNgười Mua nhận sản phẩm, dịch vụ;</string>
     <string name="ng_i_mua_th_c_m_c_khi_u_n_i_ng_i_b_n_n_u_c_qua_t_ng_i_h_tr_c_a_shop">●\tNgười Mua thắc mắc, khiếu nại Người Bán (nếu có) qua tổng đài hỗ trợ của Shop.</string>
+    <string name="trang_ch_nh">Trang chính</string>
 </resources>

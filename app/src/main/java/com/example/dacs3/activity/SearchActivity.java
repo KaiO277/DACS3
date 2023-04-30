@@ -35,11 +35,14 @@ public class SearchActivity extends AppCompatActivity {
     ApiBanHang apiBanHang;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
     LinearLayoutManager linearLayoutManager;
+    String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        key = getIntent().getStringExtra("key");
+        setTitle(key);
         initUI();
         ActionToolBar();
     }
@@ -48,39 +51,41 @@ public class SearchActivity extends AppCompatActivity {
         apiBanHang = RetrofitClient.getInstance(Utils.BASE_URL).create(ApiBanHang.class);
         toolbar = findViewById(R.id.toolbar);
         recyclerView = findViewById(R.id.rcv_search);
-        edtSearch = findViewById(R.id.edt_search);
+//        edtSearch = findViewById(R.id.edt_search);
         linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         sanPhamMoiList = new ArrayList<>();
-        edtSearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(charSequence.length() == 0){
-                    sanPhamMoiList.clear();
-                    adapterG = new GiayAdapter(getApplicationContext(),sanPhamMoiList);
-                    recyclerView.setAdapter(adapterG);
-                }else {
-                    getDataSearch(charSequence.toString());
-                }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
+        getDataSearch(key);
+//        edtSearch.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                if(charSequence.length() == 0){
+//                    sanPhamMoiList.clear();
+//                    adapterG = new GiayAdapter(getApplicationContext(),sanPhamMoiList);
+//                    recyclerView.setAdapter(adapterG);
+//                }else {
+//                    getDataSearch(charSequence.toString());
+//                }
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//
+//            }
+//        });
     }
 
     private void getDataSearch(String s) {
         sanPhamMoiList.clear();
-        String str_search = edtSearch.getText().toString().trim();
+//        String str_search = s;
         compositeDisposable.add(apiBanHang.search(s)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

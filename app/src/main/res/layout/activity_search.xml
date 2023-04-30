@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.SearchActivity">
     <androidx.appcompat.widget.Toolbar
-        
+
         android:id="@+id/toolbar"
         app:layout_constraintTop_toTopOf="parent"
         android:background="#B2B4C1"
@@ -14,20 +14,20 @@
         android:layout_height="?attr/actionBarSize">
 
     </androidx.appcompat.widget.Toolbar>
-    <EditText
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:hint="Nhập tên sản phẩm tìm kiếm"
-        android:id="@+id/edt_search"/>
+    <!--    <EditText-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/toolbar"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginLeft="10dp"-->
+    <!--        android:layout_marginRight="10dp"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:hint="Nhập tên sản phẩm tìm kiếm"-->
+    <!--        android:id="@+id/edt_search"/>-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_search"
         android:layout_marginTop="5dp"
         android:layout_marginStart="5dp"
-        app:layout_constraintTop_toBottomOf="@+id/edt_search"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
